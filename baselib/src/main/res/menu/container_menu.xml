@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+<!--    <item-->
+<!--        android:id="@+id/app_bar_search"-->
+<!--        android:icon="@drawable/vector_search_icon"-->
+<!--        android:title="搜索"-->
+<!--        app:actionViewClass="android.widget.SearchView"-->
+<!--        app:showAsAction="ifRoom" />-->
+    <item
+        android:icon="@drawable/vector_user"
+        android:title="用户"
+        app:showAsAction="ifRoom" />
+</menu>

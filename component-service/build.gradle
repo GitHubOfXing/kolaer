@@ -1,0 +1,107 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion 28
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+task includefile {
+
+//    if (project.android instanceof AppExtension) {
+//        AssembleTask assembleTask = getTaskInfo(project.gradle.startParameter.taskNames)
+//        if (assembleTask.isAssemble
+//                && (assembleTask.modules.contains("all") || assembleTask.modules.contains(module))) {
+//            //添加组件依赖
+//            String components = (String) project.properties.get("compileComponent")
+//            if (components == null || components.length() == 0) {
+//                System.out.println("there is no add dependencies ")
+//                return
+//            }
+//            String[] compileComponents = components.split(",")
+//            if (compileComponents == null || compileComponents.length == 0) {
+//                System.out.println("there is no add dependencies ")
+//                return
+//            }
+//
+//            for (String str : compileComponents) {
+//                System.out.println("-----add--implementation:- "+str)
+//                project.dependencies.add("implementation", project.project(':' + str))
+//            }
+//        }
+//    }
+
+}
+
+//AssembleTask getTaskInfo(List<String> taskNames) {
+//    AssembleTask assembleTask = new AssembleTask()
+//    for (String task : taskNames) {
+//        if (task.toUpperCase().contains("ASSEMBLE") || task.toUpperCase().contains("INSTALL")) {
+//            if (task.toUpperCase().contains("DEBUG")) {
+//                assembleTask.isDebug = true
+//            }
+//            assembleTask.isAssemble = true
+//            System.out.println("debug assembleTask info:"+task)
+//            String[] strs = task.split(":")
+//            assembleTask.modules.add(strs.length > 1 ? strs[strs.length - 2] : "all")
+//            break
+//        }
+//    }
+//    return assembleTask
+//}
+
+//class AssembleTask {
+//    boolean isAssemble = false
+//    boolean isDebug = false
+//    List<String> modules = new ArrayList<>()
+//}
+
+project.dependencies {
+    println "111---"
+
+    //添加组件依赖
+    String components = (String) project.properties.get("compileComponent")
+    if (components == null || components.length() == 0) {
+        System.out.println("there is no add dependencies ")
+        return
+    }
+    String[] compileComponents = components.split(",")
+    if (compileComponents == null || compileComponents.length == 0) {
+        System.out.println("there is no add dependencies ")
+        return
+    }
+
+    for (String str : compileComponents) {
+        System.out.println("-----add--implementation:- "+str)
+        project.dependencies.add("implementation", project.project(':' + str))
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    api project(path: ':middleware')
+}

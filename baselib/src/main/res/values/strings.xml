@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">baselib</string>
+    <string name="action_settings">Change Data</string>
+    <string name="section_format">Show Data : %1$s</string>
+    <string name="laoyao">老妖</string>
+    <string name="laowang">老王</string>
+    <string name="laoliu">老柳</string>
+    <string name="laoguo">老郭</string>
+    <string name="laochen">老陈</string>
+    <string name="laorao">老饶</string>
+
+</resources>

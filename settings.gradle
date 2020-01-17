@@ -1,2 +1,3 @@
-include ':app'
+include ':app',':logstaticslib', ':component-service', ':baselib', ':middleware'
+//, ':sharepaylib', ':privilegepushlib', ':netpiclib',
 rootProject.name='Kolaer'
