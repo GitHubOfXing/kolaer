@@ -6,7 +6,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.ViewPager
-import cn.tech.kolaer.platform.MainFragment
+import cn.tech.kolaer.platform.page.LayerFragment
+import cn.tech.kolaer.platform.page.MainFragment
 import cn.tech.kolaer.platform.test.InfoEntity
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.Gson
@@ -14,6 +15,7 @@ import com.uxin.baselib.*
 import com.uxin.component_service.ComponetPlatform
 import com.uxin.component_service.Kolaer
 import com.uxin.middleware.api.ILogLibApi
+import com.uxin.middleware.internal.MethodProcessor
 import java.util.ArrayList
 
 class MainActivity : BaseActivity() {
@@ -55,6 +57,7 @@ class MainActivity : BaseActivity() {
         val loaer = kk.build()
 
         loaer.create(ILogLibApi::class.java!!).test("lichenxing")
+
     }
 
     override fun create() {
@@ -85,7 +88,11 @@ class MainActivity : BaseActivity() {
         for(i in resTxt.indices) {
             val info = InfoEntity(getString(resTxt[i]), i.toString())
             val jsonInfo = gson.toJson(info)
-            tabFragments.add(MainFragment.newInstance(jsonInfo,InfoEntity::class.java))
+            if(i == 1) {
+                tabFragments.add(LayerFragment.newInstance(jsonInfo,InfoEntity::class.java))
+            } else {
+                tabFragments.add(MainFragment.newInstance(jsonInfo,InfoEntity::class.java))
+            }
         }
         return tabFragments
     }

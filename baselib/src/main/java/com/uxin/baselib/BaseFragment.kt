@@ -124,30 +124,30 @@ abstract class BaseFragment : Fragment() {
      */
     protected abstract fun initEvent()
 
-    /**
-     * 显示提示框
-     *
-     * @param msg 等待消息字符串
-     */
-    protected fun showProgressDialog(msg: String) {
-        if (mProgressDialog == null) {
-            mProgressDialog = ProgressDialog(mContext)
-        }
-        if (mProgressDialog!!.isShowing) {
-            mProgressDialog!!.dismiss()
-        }
-        mProgressDialog!!.setMessage(msg)
-        mProgressDialog!!.show()
-    }
+//    /**
+//     * 显示提示框
+//     *
+//     * @param msg 等待消息字符串
+//     */
+//    protected fun showProgressDialog(msg: String) {
+//        if (mProgressDialog == null) {
+//            mProgressDialog = ProgressDialog(mContext)
+//        }
+//        if (mProgressDialog!!.isShowing) {
+//            mProgressDialog!!.dismiss()
+//        }
+//        mProgressDialog!!.setMessage(msg)
+//        mProgressDialog!!.show()
+//    }
 
-    /**
-     * 隐藏提示框
-     */
-    protected fun hideProgressDialog() {
-        if (mProgressDialog != null) {
-            mProgressDialog!!.dismiss()
-        }
-    }
+//    /**
+//     * 隐藏提示框
+//     */
+//    protected fun hideProgressDialog() {
+//        if (mProgressDialog != null) {
+//            mProgressDialog!!.dismiss()
+//        }
+//    }
 
     @StringRes
     protected abstract fun fragmentPageName(): Int

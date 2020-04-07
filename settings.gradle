@@ -1,3 +1,3 @@
-include ':app',':logstaticslib', ':component-service', ':baselib', ':middleware'
+include ':app',':logstaticslib', ':component-service', ':baselib', ':playerlib', ':middleware', ':routerlib', ':routelib'
 //, ':sharepaylib', ':privilegepushlib', ':netpiclib',
 rootProject.name='Kolaer'

@@ -1,0 +1,9 @@
+<resources>
+
+    <declare-styleable name="EventLayerLayout">
+        <attr name="lowerlayer" format="reference"/>
+        <attr name="mediumlayer" format="reference"/>
+        <attr name="higherlayer" format="reference"/>
+    </declare-styleable>
+
+</resources>
